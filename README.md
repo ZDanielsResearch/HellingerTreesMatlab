@@ -23,7 +23,7 @@ Daniels, Zachary A. "Hellinger Decision Trees and Forests for Matlab."<https://g
 @misc{daniels2015hellinger,
   author = {Daniels, Zachary A}
   title = {Hellinger Decision Trees and Forests for Matlab},
-  howpublished  = {\url{https://github.com/ZDanielsResearch/HellingerTreesMatlab}},
+  howpublished  = {\url{https://github.com/ZDanielsResearch/HellingerTreesMatlab}}
 }
 
 The code was developed on Matlab R2014b for Mac OS X 10.10 (Yosemite).
