@@ -20,7 +20,6 @@ function model = HDDT(features,labels,model,numBins,cutoff,memThresh,memSplit)
 %Output:
 %   model: a Hellinger Distance Decision Subtree model
 
-keyboard;
 numSamples = size(features,1);
 if length(unique(labels)) == 1 || numSamples <= cutoff
     model.complete = true;

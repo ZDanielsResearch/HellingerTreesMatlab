@@ -11,6 +11,7 @@ function predicted_classes = predict_Hellinger_forest(model,features)
 %Output:
 %   predicted_classes: I X 1 matrix where each row represents a predicted label of the corresponding feature set 
 
+[numInstances,numFeatures] = size(features);
 
 if numInstances <= 0
     msgID = 'predict_Hellinger_forest:notEnoughData';

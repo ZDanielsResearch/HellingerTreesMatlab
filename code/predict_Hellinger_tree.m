@@ -30,15 +30,13 @@ initialModel = model;
 predicted_classes = zeros(size(features,1),1);
 for i = 1:1:size(features,1)
     model = initialModel;
-    complete = false;
+    complete = model.complete;
     while ~complete
-        model.complete
         if features(i,model.feature) <= model.threshold
             model = model.leftBranch;
         else
             model = model.rightBranch;
         end
-        model
         complete = model.complete;
     end
     predicted_classes(i) = model.label;

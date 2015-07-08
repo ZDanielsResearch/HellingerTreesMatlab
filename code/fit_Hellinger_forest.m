@@ -27,6 +27,8 @@ function model = fit_Hellinger_forest(features, labels, numTrees, numBins, minFe
 %Output:
 %   model: a trained Hellinger Distance Decision Forest model
 
+[numInstances,numFeatures] = size(features);
+
 if numInstances <= 1
     msgID = 'fit_Hellinger_forest:notEnoughData';
     msg = 'Feature array is empty or only instance exists';

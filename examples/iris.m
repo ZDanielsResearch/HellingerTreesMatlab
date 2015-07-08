@@ -21,9 +21,9 @@ split = crossvalind('LeaveMOut',length(labels),floor(0.3 .* length(labels)));
 for i = 1:1:length(classes)
     binaryLabels = labels == i;
     trainingLabels = binaryLabels(split == 1);
-    trainingFeatures = meas(split == 1);
+    trainingFeatures = meas(split == 1,:);
     testLabels = binaryLabels(split == 0);
-    testFeatures = meas(split == 0);
+    testFeatures = meas(split == 0,:);
     
     disp('Dataset: Iris (Flower)')
     disp(['Number of Training Instances: ' num2str(size(trainingFeatures,1))]);
