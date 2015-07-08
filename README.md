@@ -18,7 +18,7 @@ Cieslak, David A., et al. "Hellinger distance decision trees are robust and skew
 
 The author has no affiliation with the researchers mentioned above, and the software is not an exact replication of the methods mentioned in the paper above. The authors of this software make no guarantee about the correctness or functionality of this code. To cite this software, you can use the following citation:
 
-Daniels, Zachary A.
+Daniels, Zachary A. "Hellinger Decision Trees and Forests for Matlab."<https://github.com/ZDanielsResearch/HellingerTreesMatlab>.
 
 @misc{daniels2015hellinger,
   author = {Daniels, Zachary A}
