@@ -21,7 +21,7 @@ The author has no affiliation with the researchers mentioned above, and the soft
 Daniels, Zachary A. "Hellinger Decision Trees and Forests for Matlab."<https://github.com/ZDanielsResearch/HellingerTreesMatlab>.
 
 @misc{daniels2015hellinger,
-  author = {Daniels, Zachary A}
+  author = {Daniels, Zachary A},
   title = {Hellinger Decision Trees and Forests for Matlab},
   howpublished  = {\url{https://github.com/ZDanielsResearch/HellingerTreesMatlab}}
 }
@@ -29,3 +29,6 @@ Daniels, Zachary A. "Hellinger Decision Trees and Forests for Matlab."<https://g
 The code was developed on Matlab R2014b for Mac OS X 10.10 (Yosemite).
 
 The examples use data packaged with the Statistics and Machine Learning Toolbox for Matlab.
+
+If you find any issues or have questions, the author can be contacted at:
+zad7@cs.rutgers.edu
