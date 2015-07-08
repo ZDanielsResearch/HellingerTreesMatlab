@@ -1,6 +1,5 @@
 # HellingerTreesMatlab
 
-NOTE: THIS VERSION IS BROKEN! PLEASE STAY TUNED!
 NOTE: THIS IS STILL HIGHLY EXPERIMENTAL AND MAY BE PRONE TO ERROR, USE WITH CAUTION!
 
 A Matlab implementation of Hellinger Distance Decision Trees and Forests for binary decision problems with imbalanced data and numeric attributes based on the paper "Hellinger distance decision trees are robust and skew-insensitive" by Cieslak et al.
