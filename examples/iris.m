@@ -49,7 +49,7 @@ for i = 1:1:length(classes)
     
     disp('Hellinger Forest:')
     tic();
-    model = fit_Hellinger_forest(trainingFeatures,trainingLabels,5);
+    model = fit_Hellinger_forest(trainingFeatures,trainingLabels,2);
     trainingTime = toc();
     tic();
     predictions = predict_Hellinger_forest(model,testFeatures);
