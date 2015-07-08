@@ -31,4 +31,4 @@ The code was developed on Matlab R2014b for Mac OS X 10.10 (Yosemite).
 The examples use data packaged with the Statistics and Machine Learning Toolbox for Matlab.
 
 If you find any issues or have questions, the author can be contacted at:
-zad7@cs.rutgers.edu
+zad7[at]cs[dot]rutgers[dot]edu
