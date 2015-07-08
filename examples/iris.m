@@ -15,7 +15,7 @@ for i = 1:1:length(classes)
 end
 
 %Split Dataset
-split = crossvalind('LeaveMOut',length(labels),floor(0.3 .* length(labels)));
+split = crossvalind('LeaveMOut',length(labels),floor(0.2 .* length(labels)));
 
 %Convert to binary classification problem: 1 vs other 2 
 for i = 1:1:length(classes)
@@ -32,6 +32,7 @@ for i = 1:1:length(classes)
     disp(' ');
     
     %HellingerTree
+    disp('Hellinger Tree:')
     tic();
     model = fit_Hellinger_tree(trainingFeatures,trainingLabels);
     trainingTime = toc();
@@ -46,11 +47,27 @@ for i = 1:1:length(classes)
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
     disp(' ');
     
+    disp('Hellinger Forest:')
     tic();
     model = fit_Hellinger_forest(trainingFeatures,trainingLabels,5);
     trainingTime = toc();
     tic();
     predictions = predict_Hellinger_forest(model,testFeatures);
+    testTime = toc();
+    correct = (predictions == testLabels);
+    correct = sum(correct) / length(correct);
+    disp(['Percent of instances correctly classified: ' num2str(correct)]);
+    disp(['Training time: ' num2str(trainingTime) ' seconds']);
+    disp(['Test time: ' num2str(testTime) ' seconds']);
+    disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
+    disp(' ');
+    
+    disp('SVM:')
+    tic();
+    model = fitcsvm(trainingFeatures,trainingLabels);
+    trainingTime = toc();
+    tic();
+    predictions = predict(model,testFeatures);
     testTime = toc();
     correct = (predictions == testLabels);
     correct = sum(correct) / length(correct);
