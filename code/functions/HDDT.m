@@ -28,8 +28,6 @@ if length(unique(labels)) == 1 || numSamples <= cutoff
 end
 numFeatures = size(features,2);
 
-%keyboard;
-
 selectedFeature = -1;
 selectedThreshold = -1;
 selectedDistance = -1;
@@ -42,7 +40,7 @@ for i = 1:floor(numFeatures ./ memSplit):numFeatures
     maxIndex = min(numFeatures,i+floor(numFeatures ./ memSplit)-1);
     featureIndices = [i:maxIndex];
     featuresTemp = features(:,i:maxIndex);
-    [featureIndex,featureThreshold,featureDistance] = compute_Hellinger_distance(features, labels, numBins);
+    [featureIndex,featureDistance,featureThreshold] = compute_Hellinger_distance(features, labels, numBins);
     if featureDistance > selectedDistance
         selectedFeature = featureIndices(featureIndex);
         selectedThreshold = featureThreshold;

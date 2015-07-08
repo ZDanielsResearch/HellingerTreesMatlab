@@ -1,6 +1,6 @@
 function model = fit_Hellinger_tree(features, labels, numBins, cutoff, memSplit, memThresh)
 %Function: fit_Hellinger_tree
-%Form: model = fit_Hellinger_tree(features, labels, cutoff, memSplit, memThresh)
+%Form: model = fit_Hellinger_tree(features, labels, numBins, cutoff, memSplit, memThresh)
 %Description: Train a single Hellinger Distance Decision Tree
 %Parameters:
 %   features: I X F numeric matrix where I is the number of instances and F

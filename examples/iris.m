@@ -77,20 +77,4 @@ for i = 1:1:length(classes)
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
     disp(' ');
     
-end 
-
-% 
-% %HellingerTreeFast
-% tic();
-% model = fit_Hellinger_tree_fast(trainingFeatures,trainingClasses,1,1);
-% trainingTime = toc();
-% tic();
-% predictions = predict_Hellinger_tree(model,testFeatures);
-% testTime = toc();
-% correct = (predictions == testClasses);
-% correct = sum(correct) / length(correct);
-% disp(['Percent of instances correctly classified: ' num2str(correct)]);
-% disp(['Training time: ' num2str(trainingTime) ' seconds']);
-% disp(['Test time: ' num2str(testTime) ' seconds']);
-% disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
-% 
+end
