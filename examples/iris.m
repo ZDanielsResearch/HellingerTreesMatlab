@@ -25,11 +25,14 @@ for i = 1:1:length(classes)
     testLabels = binaryLabels(split == 0);
     testFeatures = meas(split == 0,:);
     
+    %Dataset statistics
     disp('Dataset: Iris (Flower)')
     disp(['Number of Training Instances: ' num2str(size(trainingFeatures,1))]);
     disp(['Number of Test Instances: ' num2str(size(testFeatures,1))]);
     disp(['Number of Features (Measurements): ' num2str(size(trainingFeatures,2))]);
     disp(' ');
+    
+    %Run classifiers
     
     %HellingerTree
     disp('Hellinger Tree:')
@@ -47,6 +50,7 @@ for i = 1:1:length(classes)
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
     disp(' ');
     
+    %Hellinger Forest
     disp('Hellinger Forest:')
     tic();
     model = fit_Hellinger_forest(trainingFeatures,trainingLabels,2);
@@ -62,6 +66,7 @@ for i = 1:1:length(classes)
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
     disp(' ');
     
+    %Linear SVM for Comparison
     disp('SVM:')
     tic();
     model = fitcsvm(trainingFeatures,trainingLabels);
