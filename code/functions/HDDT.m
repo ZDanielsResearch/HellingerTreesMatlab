@@ -40,7 +40,7 @@ for i = 1:floor(numFeatures ./ memSplit):numFeatures
     maxIndex = min(numFeatures,i+floor(numFeatures ./ memSplit)-1);
     featureIndices = [i:maxIndex];
     featuresTemp = features(:,i:maxIndex);
-    [featureIndex,featureDistance,featureThreshold] = compute_Hellinger_distance(features, labels, numBins);
+    [featureIndex,featureDistance,featureThreshold] = compute_Hellinger_distance(featuresTemp, labels, numBins);
     if featureDistance > selectedDistance
         selectedFeature = featureIndices(featureIndex);
         selectedThreshold = featureThreshold;
