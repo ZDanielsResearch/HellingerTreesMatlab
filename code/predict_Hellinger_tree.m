@@ -1,4 +1,4 @@
-function predicted_classes = predict_Hellinger_tree(model,features)
+function [predicted_classes,predicted_scores] = predict_Hellinger_tree(model,features)
 %Function: predict_Hellinger_tree
 %Form: predicted_classes = predict_Hellinger_tree(model,features)
 %Description: Predict labels using trained Hellinger Distance Decision Tree
@@ -9,6 +9,8 @@ function predicted_classes = predict_Hellinger_tree(model,features)
 %       and each column represents the value of one of its corresponding features
 %Output:
 %   predicted_classes: I X 1 matrix where each row represents a predicted label of the corresponding feature set 
+%   predicted_scores: I X 1 matrix where each row represents the estimated
+%   probability of the corresponding feature set having label "1"/"true"/"positive".
 
 [numInstances,numFeatures] = size(features);
 
@@ -28,6 +30,7 @@ end
 
 initialModel = model;
 predicted_classes = zeros(size(features,1),1);
+predicted_scores = zeros(size(features,1),1);
 for i = 1:1:size(features,1)
     model = initialModel;
     complete = model.complete;
@@ -40,5 +43,6 @@ for i = 1:1:size(features,1)
         complete = model.complete;
     end
     predicted_classes(i) = model.label;
+    predicted_scores(i) = model.score;
 end
 end

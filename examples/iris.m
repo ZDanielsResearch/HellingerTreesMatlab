@@ -37,14 +37,22 @@ for i = 1:1:length(classes)
     %HellingerTree
     disp('Hellinger Tree:')
     tic();
-    model = fit_Hellinger_tree(trainingFeatures,trainingLabels);
+    model = fit_Hellinger_tree(trainingFeatures,trainingLabels,[],5);
     trainingTime = toc();
     tic();
-    predictions = predict_Hellinger_tree(model,testFeatures);
+    [predictions,scores] = predict_Hellinger_tree(model,testFeatures);
     testTime = toc();
     correct = (predictions == testLabels);
     correct = sum(correct) / length(correct);
     disp(['Percent of instances correctly classified: ' num2str(correct)]);
+    
+    [precision,recall,f1] = get_statistics(testLabels,predictions);
+    [~,~,~,AUC] = perfcurve(testLabels,scores,1);
+    disp(['Precision: ' num2str(precision)]);
+    disp(['Recall: ' num2str(recall)]);
+    disp(['F-Measure: ' num2str(f1)]);
+    disp(['AUROC: ' num2str(AUC)]);
+    
     disp(['Training time: ' num2str(trainingTime) ' seconds']);
     disp(['Test time: ' num2str(testTime) ' seconds']);
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
@@ -53,14 +61,22 @@ for i = 1:1:length(classes)
     %Hellinger Forest
     disp('Hellinger Forest:')
     tic();
-    model = fit_Hellinger_forest(trainingFeatures,trainingLabels,2);
+    model = fit_Hellinger_forest(trainingFeatures,trainingLabels,10,[],[],5);
     trainingTime = toc();
     tic();
-    predictions = predict_Hellinger_forest(model,testFeatures);
+    [predictions,scores] = predict_Hellinger_forest(model,testFeatures);
     testTime = toc();
     correct = (predictions == testLabels);
     correct = sum(correct) / length(correct);
     disp(['Percent of instances correctly classified: ' num2str(correct)]);
+    
+    [precision,recall,f1] = get_statistics(testLabels,predictions);
+    [~,~,~,AUC] = perfcurve(testLabels,scores,1);
+    disp(['Precision: ' num2str(precision)]);
+    disp(['Recall: ' num2str(recall)]);
+    disp(['F-Measure: ' num2str(f1)]);
+    disp(['AUROC: ' num2str(AUC)]);
+    
     disp(['Training time: ' num2str(trainingTime) ' seconds']);
     disp(['Test time: ' num2str(testTime) ' seconds']);
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
@@ -72,11 +88,18 @@ for i = 1:1:length(classes)
     model = fitcsvm(trainingFeatures,trainingLabels);
     trainingTime = toc();
     tic();
-    predictions = predict(model,testFeatures);
+    [predictions,scores] = predict(model,testFeatures);
     testTime = toc();
     correct = (predictions == testLabels);
     correct = sum(correct) / length(correct);
     disp(['Percent of instances correctly classified: ' num2str(correct)]);
+    [precision,recall,f1] = get_statistics(testLabels,predictions);
+    [~,~,~,AUC] = perfcurve(testLabels,scores(:,2),1);
+    disp(['Precision: ' num2str(precision)]);
+    disp(['Recall: ' num2str(recall)]);
+    disp(['F-Measure: ' num2str(f1)]);
+    disp(['AUROC: ' num2str(AUC)]);
+    
     disp(['Training time: ' num2str(trainingTime) ' seconds']);
     disp(['Test time: ' num2str(testTime) ' seconds']);
     disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);

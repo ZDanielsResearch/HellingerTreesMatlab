@@ -58,30 +58,30 @@ if length(labelIDs) ~= 2 || ismember(0,ismember(labelIDs,[0 1]))
     throw(causeException);
 end
 
-if nargin < 4
+if nargin < 4 || isempty(numBins)
     numBins = 100;
 end
 
-if nargin < 5
+if nargin < 5 || isempty(minFeatureRatio)
     minFeatureRatio = 0.8;
 end
 
-if nargin < 6
+if nargin < 6 || isempty(cutoff)
     cutoff = 10;
     if numInstances <= 10
         cutoff = 1;
     end
 end
 
-if nargin < 7
+if nargin < 7 || isempty(printCount)
     printCount = false;
 end
 
-if nargin < 8
+if nargin < 8 || isempty(memSplit)
     memSplit = 1;
 end
 
-if nargin < 9
+if nargin < 9 || isempty(memThresh)
     memThresh = 1;
 end
 

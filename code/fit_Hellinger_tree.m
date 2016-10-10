@@ -52,22 +52,22 @@ if length(labelIDs) ~= 2 || ismember(0,ismember(labelIDs,[0 1]))
     throw(causeException);
 end
 
-if nargin < 3
+if nargin < 3 || isempty(numBins)
     numBins = 100;
 end
 
-if nargin < 4
+if nargin < 4 || isempty(cutoff)
     cutoff = 10;
     if numInstances <= 10
         cutoff = 1;
     end
 end
 
-if nargin < 5
+if nargin < 5 || isempty(memSplit)
     memSplit = 1;
 end
 
-if nargin < 6
+if nargin < 6 || isempty(memThresh)
     memThresh = 1;
 end
 

@@ -17,5 +17,6 @@ classdef HellingerTreeNode
         rightBranch
         complete
         label
+        score
     end
 end

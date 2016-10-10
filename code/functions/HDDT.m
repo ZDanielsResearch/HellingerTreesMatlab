@@ -24,6 +24,7 @@ numSamples = size(features,1);
 if length(unique(labels)) == 1 || numSamples <= cutoff
     model.complete = true;
     model.label = mode(labels);
+    model.score = sum(labels) ./ length(labels);
     return
 end
 numFeatures = size(features,2);
@@ -57,6 +58,7 @@ labelsRight = labels(features(:,selectedFeature) > selectedThreshold,:);
 if size(featuresLeft,1) == numSamples || size(featuresRight,1) == numSamples
     model.complete = true;
     model.label = mode(labels);
+    model.score = sum(labels) ./ length(labels);
     return
 end
 clear features;
