@@ -19,7 +19,7 @@ testLabels = labels(split == 0);
 testFeatures = features(split == 0,:);
 
 %Dataset statistics
-disp('Dataset: Cancers')
+disp('Dataset: Crabs')
 disp(['Number of Training Instances: ' num2str(size(trainingFeatures,1))]);
 disp(['Number of Test Instances: ' num2str(size(testFeatures,1))]);
 disp(['Number of Features (Measurements): ' num2str(size(trainingFeatures,2))]);

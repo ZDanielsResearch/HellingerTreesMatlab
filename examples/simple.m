@@ -4,11 +4,11 @@ close all;
 clc;
 
 %Load cities dataset
-load('thyroid_dataset.mat');
+load('simpleclass_dataset.mat');
 
 %Just for computing splits
-labels = thyroidTargets(1,:)';
-features = thyroidInputs';
+labels = simpleclassTargets(1,:)';
+features = simpleclassInputs';
 
 %Split Dataset
 split = crossvalind('LeaveMOut',length(labels),floor(0.2 .* length(labels)));
@@ -20,17 +20,17 @@ testLabels = labels(split == 0);
 testFeatures = features(split == 0,:);
 
 %Dataset statistics
-disp('Dataset: Thyroid')
+disp('Dataset: Simple')
 disp(['Number of Training Instances: ' num2str(size(trainingFeatures,1))]);
 disp(['Number of Test Instances: ' num2str(size(testFeatures,1))]);
 disp(['Number of Features (Measurements): ' num2str(size(trainingFeatures,2))]);
 disp(' ');
 
 %Convert to binary classification problem: 1 vs other 2
-for i = 1:1:size(thyroidTargets,1)
+for i = 1:1:size(simpleclassTargets,1)
     %Fix labels to be binary
-    labels = thyroidTargets(i,:)';
-    features = thyroidInputs';
+    labels = simpleclassTargets(i,:)';
+    features = simpleclassInputs';
     
     trainingLabels = labels(split == 1);
     trainingFeatures = features(split == 1,:);

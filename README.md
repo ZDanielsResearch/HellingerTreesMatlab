@@ -31,7 +31,9 @@ Daniels, Zachary A. "Hellinger Decision Trees and Forests for Matlab."<https://g
 
 The code was developed on Matlab R2014b for Mac OS X 10.10 (Yosemite).
 
-The examples use data packaged with the Statistics and Machine Learning Toolbox for Matlab.
+The examples use data packaged with the Statistics and Machine Learning Toolbox and the Neural Network Toolbox for Matlab.
+
+The examples are very basic and are only intended to demonstrate how to use the library (and provide basic tests to check that the code is operating as it should). THEY ARE NOT PROPER EXPERIMENTS AND SHOULD NOT BE TREATED AS SUCH!
 
 If you find any issues or have questions, the author can be contacted at:
 zad7[at]cs[dot]rutgers[dot]edu
