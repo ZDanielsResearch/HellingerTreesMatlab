@@ -4,19 +4,10 @@ close all;
 clc;
 
 %Load cities dataset
-load('cancer_dataset.mat');
-
-%Fix labels to be binary
-labels = cancerTargets(1,:)';
-features = cancerInputs';
+load('thyroid_dataset.mat');
 
 %Split Dataset
 split = crossvalind('LeaveMOut',length(labels),floor(0.2 .* length(labels)));
-
-trainingLabels = labels(split == 1);
-trainingFeatures = features(split == 1,:);
-testLabels = labels(split == 0);
-testFeatures = features(split == 0,:);
 
 %Dataset statistics
 disp('Dataset: Cancers')
@@ -27,6 +18,19 @@ disp(' ');
 
 %Run classifiers
 
+%Convert to binary classification problem: 1 vs other 2 
+for i = 1:1:length(classes)
+    %Fix labels to be binary
+labels = thyroidTargets(i,:)';
+features = thyroidInputs';
+
+trainingLabels = labels(split == 1);
+trainingFeatures = features(split == 1,:);
+testLabels = labels(split == 0);
+testFeatures = features(split == 0,:);
+
+    
+    
 %HellingerTree
 disp('Hellinger Tree:')
 tic();
@@ -97,3 +101,4 @@ disp(['Training time: ' num2str(trainingTime) ' seconds']);
 disp(['Test time: ' num2str(testTime) ' seconds']);
 disp(['Total time: ' num2str(trainingTime + testTime) ' seconds']);
 disp(' ');
+end

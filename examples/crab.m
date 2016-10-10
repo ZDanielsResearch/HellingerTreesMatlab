@@ -4,11 +4,11 @@ close all;
 clc;
 
 %Load cities dataset
-load('cancer_dataset.mat');
+load('crab_dataset.mat');
 
 %Fix labels to be binary
-labels = cancerTargets(1,:)';
-features = cancerInputs';
+labels = crabTargets(1,:)';
+features = crabInputs';
 
 %Split Dataset
 split = crossvalind('LeaveMOut',length(labels),floor(0.2 .* length(labels)));
